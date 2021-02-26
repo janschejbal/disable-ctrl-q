@@ -33,9 +33,7 @@ button {
   <h1>Disable CTRL+Q</h1>
   <h2>on Firefox for Linux (and other browsers)</h2>
   <p>
-    Unfortunately, as of 2018-11-07, there does not seem to be an easy way to keep CTRL+Q from closing Firefox without warning under Linux, and most of the workarounds are unreliable or only work in certain circumstances.
-    The <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1325692">corresponding bug</a> has been locked to prevent further comments, and then ignored for 4+ months, so it doesn't seem likely that this will be fixed soon.
-    <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=243164">Unlike in Chrome</a>, I shall add (thank you, Chrome team!).
+    Firefox version 87+ will support <pre>browser.quitShortcut.disabled<pre> setting that will allow disabling this feature. You no longer need to use this site after you recieve the update.
   </p>
   <p>
     As a consequence, every time you accidentally hit CTRL+Q, Firefox closes and you have to re-open it, wait for tabs to restore (and log in again everywhere if you discard cookies on exit).
