@@ -9,6 +9,7 @@ body {
   background-color: #eee;
   max-width: 800px;
   margin: 20px auto;
+  font-family: sans-serif;
 }
 
 button {
@@ -32,6 +33,31 @@ button {
 <body>
   <h1>Disable CTRL+Q</h1>
   <h2>on Firefox for Linux (and other browsers)</h2>
+  <div id="inactive">
+    <h2>Protection against CTRL+Q inactive!</h2>
+    <p>To keep malicious web sites from abusing this, only web sites you have interacted with can show a warning before you close them. So, to disable CTRL+Q, you'll have to click this button:</p>
+    <button onclick="activate()">Disable CTRL+Q</button>
+  </div>
+  <div id="active">
+    Protection active.<br>
+    I've saved you from this annoyance <span id="count">0</span> time(s).
+  </div>
+  <div style="background-color: #ffc; border: 2px solid #cc0; padding: 0 20px;">
+    <h3>Update (2021-03-01):</h3>
+    <p>
+    For quite some time now, I've been getting a browser-issued confirmation dialog with the following settings:
+    <ul>
+      <li><code>browser.sessionstore.warnOnQuit</code> enabled (true)</li>
+      <li><code>browser.warnOnQuit</code> enabled (true)</li>
+      <li><code>browser.abs.warnOnClose</code> enabled (true)</li>
+      <li><code>browser.startup.homepage</code> set to "3" (equivalent to checking "Restore previous session" in preferences)</li>
+    </ul>
+    I'm still leaving this site up because I've seen the browser-based confirmation dialog seemingly randomly start and stop working in the past, and solutions that worked for some people didn't work for others, but you may want to try these settings. (Ironically, I suspect this <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=550559">may have gotten fixed</a> around the same time as I got around to releasing this site).
+    </p>
+    <p>
+      Also, <strong>Firefox 87 <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=52821">will introduce</a> a <code>browser.quitShortcut.disabled</code> setting, which will hopefully make this site obsolete for good.</strong>
+    </p>
+  </div>
   <p>
     Unfortunately, as of 2018-11-07, there does not seem to be an easy way to keep CTRL+Q from closing Firefox without warning under Linux, and most of the workarounds are unreliable or only work in certain circumstances.
     The <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1325692">corresponding bug</a> has been locked to prevent further comments, and then ignored for 4+ months, so it doesn't seem likely that this will be fixed soon.
@@ -44,15 +70,6 @@ button {
     So I made this site. It can't completely disable the shortcut, but it will trigger a confirmation dialog so you can keep it from closing your entire browser.
     And hopefully motivate a Firefox developer into addressing this before the heat death of the universe. If this gets popular, maybe I'll add a global counter?
   </p>
-  <div id="inactive">
-    <h2>Protection against CTRL+Q inactive!</h2>
-    <p>To keep malicious web sites from abusing this, only web sites you have interacted with can show a warning before you close them. So, to disable CTRL+Q, you'll have to click this button:</p>
-    <button onclick="activate()">Disable CTRL+Q</button>
-  </div>
-  <div id="active">
-    Protection active.<br>
-    I've saved you from this annoyance <span id="count">0</span> time(s).
-  </div>
   <h2>This is stupid.</h2>
   <p>Yes.</p>
 
